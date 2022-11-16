@@ -27,26 +27,30 @@
 /* Color  */
 
 .color-primary {
-  color: #E90000;
+  color: #e90000;
 }
 
 .bg-primary {
-  background-color: #E90000;
+  background-color: #e90000;
 }
 
 /* Background Photo */
 
 .bg-img-hero {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%), url("../assets/images/image-dashboard-hero_section.png");
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../assets/images/image-dashboard-hero_section.png");
   background-position: center;
   background-size: cover;
-
 }
 
 /* bg-text */
 
 .bg-text-special-1 {
-  background: linear-gradient(180deg, #EAEBE7 0%, #AFB1AE 149.56%);
+  background: linear-gradient(180deg, #eaebe7 0%, #afb1ae 149.56%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -55,12 +59,24 @@
 
 /* custom width and height */
 
-@media screen and (min-width: 600px)  { 
+@media screen and (min-width: 600px) {
   .w-c-622 {
     width: 622px;
   }
-  
+
   .h-c-450 {
     width: 450px;
   }
+}
+
+/* SwiperJS */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 }
