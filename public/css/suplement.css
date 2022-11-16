@@ -1,0 +1,66 @@
+.cekbang {
+  border: 1px solid green;
+}
+
+/* Font Family : LATO */
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../assets/montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "montserrat-bold";
+  src: url("../assets/montserrat/static/Montserrat-ExtraBold.ttf");
+}
+
+/* Setting Font Family to Default */
+
+* {
+  font-family: "montserrat";
+}
+
+.font-extrabold {
+  font-family: "montserrat-bold";
+}
+
+/* Color  */
+
+.color-primary {
+  color: #E90000;
+}
+
+.bg-primary {
+  background-color: #E90000;
+}
+
+/* Background Photo */
+
+.bg-img-hero {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%), url("../assets/images/image-dashboard-hero_section.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+/* bg-text */
+
+.bg-text-special-1 {
+  background: linear-gradient(180deg, #EAEBE7 0%, #AFB1AE 149.56%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* custom width and height */
+
+@media screen and (min-width: 600px)  { 
+  .w-c-622 {
+    width: 622px;
+  }
+  
+  .h-c-450 {
+    width: 450px;
+  }
+}
