@@ -30,7 +30,7 @@
             </div>
             <ul class="py-1" aria-labelledby="user-menu-button">
               <li>
-                <a href="dashboard.html"
+                <a href="dashboard.php"
                   class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
               </li>
               <li>
@@ -64,22 +64,22 @@
           <ul
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-inherit">
             <li>
-              <a href="cari-mobil.html"
+              <a href="cari-mobil.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Cari Mobil</a>
             </li>
             <li>
-              <a href="lihat-fitur.html"
+              <a href="lihat-fitur.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Lihat Fitur</a>
             </li>
             <li>
-              <a href="cek-garansi.html"
+              <a href="cek-garansi.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Cek Garansi</a>
             </li>
             <li>
-              <a href="cari-toko.html"
+              <a href="cari-toko.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Toko Terdekat</a>
             </li>
@@ -89,7 +89,7 @@
                 aria-current="page">FAQ</a>
             </li> -->
             <li>
-              <a href="tentang-kami.html"
+              <a href="tentang-kami.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Tentang Kami</a>
             </li>
