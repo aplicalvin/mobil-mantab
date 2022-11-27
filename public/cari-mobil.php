@@ -6,7 +6,7 @@
 <body>
     <!-- Memanggil Navbar -->
     <?php include("components/navbar.php"); ?>
-
+    
     <!-- Memanggil Footer -->
     <?php include("components/footer.php"); ?>
 </body>
