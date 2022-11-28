@@ -1,13 +1,7 @@
-    <?php
-    require 'func/function.php';
-    $user_profile = mysqli_query($conn, 'SELECT * FROM identifikasi_pengguna WHERE id = 1');
-    $user_profile = mysqli_fetch_assoc($user_profile);
-
-    ?>
     
     <nav class="w-full bg-primary border-gray-200  px-2 sm:px-4 py-2.5 rounded-none">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" class="flex items-center">
+        <a href="dashboard.php" class="flex items-center">
           <img src="assets/Font-Logo.png" class="mr-3 h-6 sm:h-9" alt="MobilMantab Logo">
           <!-- <span class="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span> -->
         </a>
@@ -64,7 +58,7 @@
           <ul
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-inherit">
             <li>
-              <a href="cari-mobil.html"
+              <a href="Admin-carimobil.php"
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
                 aria-current="page">Cari Mobil</a>
             </li>
