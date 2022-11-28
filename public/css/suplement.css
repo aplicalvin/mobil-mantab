@@ -24,6 +24,16 @@
   font-family: "montserrat-bold";
 }
 
+/* Customisation Width */
+
+.h-w {
+  aspect-ratio: 1 / 1;
+}
+
+.h-3p4 {
+  aspect-ratio: 4 / 3;
+}
+
 /* Color  */
 
 .color-primary {
@@ -46,6 +56,22 @@
   background-position: center;
   background-size: cover;
 }
+
+.bg-img-feature {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/images/img-feature-hero_section.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-img-feature-bottom {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.92%, #000000 103.54%),
+    url("../assets/images/img-feature-hero_section.png");
+  background-position: center;
+  background-size: cover;
+}
+/* (180deg, rgba(0, 0, 0, 0) 37.92%, #000000 103.54%) */
+
 
 /* bg-text */
 
