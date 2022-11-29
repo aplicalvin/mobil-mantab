@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MobilMantab - Mobil Listrik Berkualitas, Lebih Hemat, Ramah Lingkungan</title>
+    <link rel="shortcut icon" href="assets/Favicon.png" type="image/x-icon" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/output.css" />
+    <link rel="stylesheet" href="css/suplement.css" />
+
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="swiperjs/swiper-bundle.min.css" />
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <script>
+      ACCESS_TOKEN =
+        "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
+      MB_ATTR =
+        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+      MB_URL =
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=" +
+        ACCESS_TOKEN;
+      OSM_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+      OSM_ATTRIB =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    </script>
+  </head>
+
+  <body class="lg:h-screen">
+    <!-- Memanggil Navbar -->
+    <nav class="w-full bg-primary border-gray-200  px-2 sm:px-4 py-2.5 rounded-none">
+      <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/Font-Logo.png" class="mr-3 h-6 sm:h-9" alt="MobilMantab Logo">
+          <!-- <span class="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span> -->
+        </a>
+        <div class="flex items-center md:order-2">
+          <button type="button"
+            class="flex mr-3 text-sm bg-inherit rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
+            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-lg border-white border-2" src="assets/dummy/shugora-1.jpg" alt="user photo">
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
+            id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 621.25px);">
+            <div class="py-3 px-4">
+              <span class="block text-sm text-gray">Calvin Samuel Simbolon/span>
+              <span class="block text-sm font-medium text-gray-700 truncate">calvins.simbolon@gmail.com</span>
+            </div>
+            <ul class="py-1" aria-labelledby="user-menu-button">
+              <li>
+                <a href="index.html"
+                  class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Earnings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sign
+                  out</a>
+              </li>
+            </ul>
+          </div>
+          <button data-collapse-toggle="mobile-menu-2" type="button"
+            class="inline-flex items-center p-2 ml-1 text-sm text-white/70 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+            aria-controls="mobile-menu-2" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+          <ul
+            class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-inherit">
+            <li>
+              <a href="cari-mobil.html"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
+                aria-current="page">Cari Mobil</a>
+            </li>
+            <li>
+              <a href="lihat-fitur.html"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
+                aria-current="page">Lihat Fitur</a>
+            </li>
+            <li>
+              <a href="cek-garansi.html"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
+                aria-current="page">Cek Garansi</a>
+            </li>
+            <li>
+              <a href="cari-toko.html"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
+                aria-current="page">Toko Terdekat</a>
+            </li>
+
+            <li>
+              <a href="tentang-kami.html"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-red-600 hover:text-white rounded md:bg-transparent md:text-white/70 md:p-0 md:hover:bg-inherit md:hover:text-white"
+                aria-current="page">Tentang Kami</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Javascript -->
+    <script src="css/flowbite.js"></script>
+
+    <div class="grid lg:flex lg:w-full h-screen lg:h-full">
+      <div
+        class="grid order-2 lg:order-1 w-full py-8 px-8 lg:max-w-lg sm:py-16 sm:px-16 md:max-h-screen overflow-scroll"
+      >
+        <div class="grid h-fit gap-8">
+          <div class="h-fit">
+            <form class="flex items-center">
+              <label for="simple-search" class="sr-only"
+                >Cari Toko Terdekat</label
+              >
+              <div class="relative w-full">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                ></div>
+                <input
+                  type="text"
+                  id="simple-search"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full pl-10 p-2.5"
+                  placeholder="Cari Toko Terdekat"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="py-2.5 px-5 ml-2 text-sm font-medium text-white bg-primary rounded-lg border border-red-600 focus:ring-4 focus:outline-none focus:ring-red-300"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+                <span class="sr-only">Search</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="grid w-full max-h-full gap-4">
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  Snapan MobilMantab Center
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang DP Mall Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Serta Arlan No 11, Kota Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab 
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang Paragon Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang Ciputra Mall Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang Tentrem Mall Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang UNNES Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang UNDIP Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang UNDIP Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-fit hover:underline">
+              <div>
+                <h1 class="bold text-base md:text-xl">
+                  MobilMantab Cabang Transmart Majapahit Semarang
+                </h1>
+                <p class="text-sm md:text-base font-thin">
+                  Jl. Pandanaran II No. 12, Semarang
+                </p>
+                <div class="flex">
+                  <p>07.00 - 15.00</p>
+                  <p>Sedang Buka</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-fit mt-12">
+          <h1>
+            Copyright &copy
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Calvin Samuel Simbolon
+          </h1>
+        </div>
+      </div>
+      <div class="grid order-1 lg:order-2 w-full h-96 lg:h-full -z-10">
+        <div id="map" class="w-full lg:h-full"></div>
+      </div>
+    </div>
+
+    <script>
+      var map = L.map("map").setView(
+        [-6.990350800440675, 110.41996679792149],
+        70
+      );
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+      L.marker([-7.006065247587465, 110.43229302956243])
+        .addTo(map)
+        .bindPopup("MobilMantab Cabang Java Mall Semarang")
+        .openPopup();
+      L.marker([-6.982840709185421, 110.4123839026655])
+        .addTo(map)
+        .bindPopup("MobilMantab Cabang DP Mall Semarang")
+        .openPopup();
+      L.marker([-6.979256980310941, 110.41589190595077])
+        .addTo(map)
+        .bindPopup("MobilMantab Paragon Mall Semarang")
+        .openPopup();
+      L.marker([-6.988398687716517, 110.42382093437426])
+        .addTo(map)
+        .bindPopup("MobilMantab Ciputra Mall Semarang")
+        .openPopup();
+      L.marker([-6.986206448031922, 110.42234114355428])
+        .addTo(map)
+        .bindPopup("MobilMantab Tentrem Mall Semarang")
+        .openPopup();
+      L.marker([-7.050460274705036, 110.39242001141405])
+        .addTo(map)
+        .bindPopup("MobilMantab Cabang UNNES Semarang")
+        .openPopup();
+      L.marker([-7.05174954136154, 110.44089159792208])
+        .addTo(map)
+        .bindPopup("MobilMantab Cabang UNDIP Semarang")
+        .openPopup();
+      L.marker([-7.018796661311062, 110.494428466146])
+        .addTo(map)
+        .bindPopup("MobilMantab Cabang UNDIP Semarang")
+        .openPopup();
+      L.marker([-6.990350800440675, 110.41996679792149])
+        .addTo(map)
+        .bindPopup("Cabang SMKN8 Semarang")
+        .openPopup();
+
+    </script>
+  </body>
+</html>
