@@ -1,0 +1,108 @@
+.cekbang {
+  border: 1px solid green;
+}
+
+/* Font Family : LATO */
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../assets/montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "montserrat-bold";
+  src: url("../assets/montserrat/static/Montserrat-ExtraBold.ttf");
+}
+
+/* Setting Font Family to Default */
+
+* {
+  font-family: "montserrat";
+}
+
+.font-extrabold {
+  font-family: "montserrat-bold";
+}
+
+/* Customisation Width */
+
+.h-w {
+  aspect-ratio: 1 / 1;
+}
+
+.h-3p4 {
+  aspect-ratio: 4 / 3;
+}
+
+/* Color  */
+
+.color-primary {
+  color: #e90000;
+}
+
+.bg-primary {
+  background-color: #e90000;
+}
+
+/* Background Photo */
+
+.bg-img-hero {
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../assets/images/image-dashboard-hero_section.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-img-feature {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/images/img-feature-hero_section.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-img-feature-bottom {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.92%, #000000 103.54%),
+    url("../assets/images/img-feature-hero_section.png");
+  background-position: center;
+  background-size: cover;
+}
+/* (180deg, rgba(0, 0, 0, 0) 37.92%, #000000 103.54%) */
+
+
+/* bg-text */
+
+.bg-text-special-1 {
+  background: linear-gradient(180deg, #eaebe7 0%, #afb1ae 149.56%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* custom width and height */
+
+@media screen and (min-width: 600px) {
+  .w-c-622 {
+    width: 622px;
+  }
+
+  .h-c-450 {
+    width: 450px;
+  }
+}
+
+/* SwiperJS */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
